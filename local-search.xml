@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>Proxmox VE KVM 资源限制 小结</title>
+    <link href="/2021/09/07/fb72d1dee3fc.html"/>
+    <url>/2021/09/07/fb72d1dee3fc.html</url>
+    
+    <content type="html"><![CDATA[<p><strong>测试环境为 pve-manager/6.4-13/9f411e79 ,可能不具备通用性,仅供参考</strong></p><span id="more"></span><h1 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h1><h2 id="cpu限制"><a href="#cpu限制" class="headerlink" title="cpu限制"></a>cpu限制</h2><p>proxmox ve的cpu限制主要使用cgroup的cpu.cfs_quota_us来实现.<br>这个值与用户输入的并不一样,proxmox ve会自动进行换算.</p><pre><code>Specifies the total amount of runtime in microseconds (represented by us for µs), for which all tasks in the  Drill cgroup can run during one period (as defined by cpu.cfs_period_us). When tasks in the Drill cgroup  use up all the time specified by the quota, the tasks are throttled for the remainder of the time specified by  the period and they cannot run until the next period. For example, if tasks in the Drill cgroup can access a  single CPU for 0.2 seconds out of every 1 second, set cpu.cfs_quota_us to 200000 and cpu.cfs_period_us  to 1000000. Setting the cpu.cfs_quota_us value to -1 indicates that the group does not have any  restrictions on CPU. This is the default value for every cgroup, except for the root cgroup.</code></pre><p>Source: <a href="https://drill.apache.org/docs/configuring-cgroups-to-control-cpu-usage/">Drill Docs</a></p><h2 id="cpu权重"><a href="#cpu权重" class="headerlink" title="cpu权重"></a>cpu权重</h2><p>同上面提到的cpu限制一样,proxmox ve的cpu权重也主要使用cgroup来实现.<br>不过不同的是,这次使用到的是cpu.shares,而且并且没有经过换算.<br>设置参考文章: <a href="https://www.redhat.com/sysadmin/cgroups-part-two">How to manage cgroups with CPUShares</a></p><hr><p>待续  </p>]]></content>
+    
+    
+    <categories>
+      
+      <category>技术小结</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>proxmox ve</tag>
+      
+      <tag>kvm</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="/2021/09/07/f31a5ccfd03a.html"/>
+    <url>/2021/09/07/f31a5ccfd03a.html</url>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  
+</search>
